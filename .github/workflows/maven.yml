@@ -37,7 +37,23 @@ jobs:
         name: java-demp
     # Destination path
         path: src/
-      
+   
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Maven test
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: | 
+        mvn test
+    
+    
   codeql-test:
     runs-on: ubuntu-latest
     steps:
