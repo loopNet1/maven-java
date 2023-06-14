@@ -36,7 +36,7 @@ jobs:
     # Artifact name
         name: java-demp
     # Destination path
-        path: temp.txt
+        path: src/
       
   codeql-test:
     runs-on: ubuntu-latest
