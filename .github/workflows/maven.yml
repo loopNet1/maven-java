@@ -17,7 +17,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
@@ -39,7 +39,7 @@ jobs:
 #         path: src/
    
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     steps:
     - uses: actions/checkout@v3
@@ -51,7 +51,7 @@ jobs:
       run: mvn --batch-mode --update-snapshots verify
 
   publish-job:
-      runs-on: ubuntu-latest
+      runs-on: self-hosted 
       needs: [build,test]
       steps:
         - uses: actions/checkout@v2
@@ -67,7 +67,7 @@ jobs:
             path: staging
     
 #   codeql-test:
-#     runs-on: ubuntu-latest
+#     runs-on: self-hosted
 #     steps:
 #     - uses: actions/checkout@v3
 #     - name: test
