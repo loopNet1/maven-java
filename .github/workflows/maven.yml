@@ -59,7 +59,7 @@ jobs:
           with:
             java-version: 11
         - run: mvn -B package --file pom.xml -DskipTests
-#         - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
+        - run: mkdir staging && cp target/*demo-0.0.1-SNAPSHOT.jar staging
         - run: ls target
         - uses: actions/upload-artifact@v3
           with:
